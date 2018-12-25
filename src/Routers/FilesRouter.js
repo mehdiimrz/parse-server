@@ -24,7 +24,6 @@ export class FilesRouter {
         type: () => {
           return true;
         },
-        limit: maxUploadSize,
       }), // Allow uploads without Content-Type, or with any Content-Type.
       Middlewares.handleParseHeaders,
       this.createHandler

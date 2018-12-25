@@ -160,7 +160,7 @@ class ParseServer {
       new PublicAPIRouter().expressRouter()
     );
 
-    api.use(bodyParser.json({ type: '*/*', limit: maxUploadSize }));
+    api.use(bodyParser.json({ type: '*/*'}));
     api.use(middlewares.allowCrossDomain);
     api.use(middlewares.allowMethodOverride);
     api.use(middlewares.handleParseHeaders);
