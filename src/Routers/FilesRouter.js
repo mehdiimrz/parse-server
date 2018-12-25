@@ -7,7 +7,7 @@ import mime from 'mime';
 import logger from '../logger';
 
 export class FilesRouter {
-  expressRouter({ maxUploadSize = '20Mb' } = {}) {
+  expressRouter({ maxUploadSize = '100Mb' } = {}) {
     var router = express.Router();
     router.get('/files/:appId/:filename', this.getHandler);
 
@@ -24,6 +24,7 @@ export class FilesRouter {
         type: () => {
           return true;
         },
+        limit: maxUploadSize,
       }), // Allow uploads without Content-Type, or with any Content-Type.
       Middlewares.handleParseHeaders,
       this.createHandler
